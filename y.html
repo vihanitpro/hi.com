@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Chatbot</title>
+    <style>
+        /* Chat Icon */
+        #chat-icon {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            background-color: #0078d7;
+            color: white;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 1001;
+        }
+
+        /* Chat Container */
+        #chat-container {
+            display: none;
+            position: fixed;
+            right: 20px;
+            bottom: 80px;
+            width: 300px;
+            height: 400px;
+            background-color: rgb(169, 133, 133);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Active chat container */
+        #chat-container.active {
+            display: flex;
+        }
+
+        /* Close button */
+        #close-chat {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            background-color: transparent;
+            border: none;
+        }
+
+        /* Messages container */
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            max-height: 320px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* User and bot message styling */
+        .message {
+            padding: 8px 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.user {
+            background-color: #d1ffd6;
+            color: #333;
+            text-align: right;
+        }
+
+        .message.bot {
+            background-color: #e6f7ff;
+            color: #333;
+            text-align: left;
+        }
+
+        /* Input container */
+        #input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #0078d7;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005bb5;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Chat Icon -->
+    <img src="img/abt-us.jpeg" id="chat-icon" onclick="toggleChat()" width="50px" alt="Chat Icon">
+
+    <!-- Chat Container -->
+    <div id="chat-container">
+        <!-- Close Button -->
+        <span id="close-chat" onclick="toggleChat()">X</span>
+
+        <!-- Messages Section -->
+        <div id="messages"></div>
+
+        <!-- Input Area -->
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type a message">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script src="https://drive.google.com/file/d/1vrmpaHDDm_qIOia7I0DQk2KH_fsasPxw/view?usp=sharing">
+        // Toggle Chatbox visibility
+        // function toggleChat() {
+        //     const chatContainer = document.getElementById('chat-container');
+        //     chatContainer.classList.toggle('active');
+        // }
+
+        // // Simulate the response (Simple logic)
+        // function getBotResponse(userMessage) {
+        //     const responses = {
+        //         "hello": "Hi there! How can I assist you?",
+        //         "how are you?": "I'm good, thank you! How can I help you?",
+        //         "bye": "Goodbye! Have a nice day!"
+        //     };
+
+        //     return responses[userMessage.toLowerCase()] || "Sorry, I don't understand that.";
+        // }
+
+        // // Send message function
+        // function sendMessage() {
+        //     const input = document.getElementById("user-input");
+        //     const userMessage = input.value.trim();
+        //     if (!userMessage) return;
+
+        //     // Show user message
+        //     const messages = document.getElementById("messages");
+        //     const userMsgDiv = document.createElement("div");
+        //     userMsgDiv.className = "message user";
+        //     userMsgDiv.textContent = `You: ${userMessage}`;
+        //     messages.appendChild(userMsgDiv);
+
+        //     // Get bot response
+        //     const botResponse = getBotResponse(userMessage);
+
+        //     // Show bot response
+        //     const botMsgDiv = document.createElement("div");
+        //     botMsgDiv.className = "message bot";
+        //     botMsgDiv.textContent = `Bot: ${botResponse}`;
+        //     messages.appendChild(botMsgDiv);
+
+        //     input.value = ''; // Clear the input field
+        //     messages.scrollTop = messages.scrollHeight; // Scroll to the latest message
+        // }
+    </script>
+</body>
+</html>
